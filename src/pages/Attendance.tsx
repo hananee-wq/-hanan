@@ -72,19 +72,20 @@ export default function Attendance() {
       <div className="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-pink-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none"></div>
       
       {/* Top Navigation */}
-      <nav className="glass-panel rounded-none border-t-0 border-l-0 border-r-0 sticky top-0 z-50 px-6 py-4 flex justify-between items-center mb-8">
-        <div className="flex items-center gap-4">
+      <nav className="glass-panel rounded-none border-t-0 border-l-0 border-r-0 sticky top-0 z-40 px-6 py-4 flex items-center justify-between mb-8">
+        <div className="w-1/4 flex items-center gap-4">
           <button onClick={() => navigate('/dashboard')} className="p-2 hover:bg-indigo-100 rounded-full text-indigo-600 transition-colors">
             <ArrowLeft size={24} />
           </button>
-          <div>
-            <h1 className="text-lg font-bold text-indigo-900 leading-tight">
-              {type === 'homeroom' ? 'บันทึกโฮมรูม (ช่วงเช้า)' : 'บันทึกการเข้าแถว'}
-            </h1>
-            <p className="text-xs text-indigo-600">ชั้น {selectedRoom}</p>
-          </div>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex-1 flex flex-col items-center justify-center text-center">
+          <img src="https://img2.imgbiz.com/imgbiz/logo-design.png" alt="Logo" className="h-10 w-auto drop-shadow-sm mb-1" referrerPolicy="no-referrer" />
+          <h1 className="text-lg font-bold text-indigo-900 leading-tight">
+            {type === 'homeroom' ? 'บันทึกโฮมรูม (ช่วงเช้า)' : 'บันทึกการเข้าแถว'}
+          </h1>
+          <p className="text-xs text-indigo-600">ชั้น {selectedRoom}</p>
+        </div>
+        <div className="w-1/4 flex items-center justify-end">
           <div className="hidden md:block text-sm text-right">
             <p className="font-semibold text-indigo-900">{currentUser?.name}</p>
             <p className="text-xs text-indigo-500">ครูประจำชั้น</p>

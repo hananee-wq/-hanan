@@ -108,16 +108,8 @@ export default function Dashboard() {
       <div className="fixed bottom-[-20%] left-[20%] w-[500px] h-[500px] bg-blue-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000 pointer-events-none"></div>
 
       {/* Top Navigation */}
-      <nav className="glass-panel rounded-none border-t-0 border-l-0 border-r-0 sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
-        <div className="flex items-center gap-4">
-          <img src="https://img2.imgbiz.com/imgbiz/logo-design.png" alt="Logo" className="h-10 w-auto drop-shadow-sm" referrerPolicy="no-referrer" />
-          <div className="hidden md:block">
-            <h1 className="text-lg font-bold text-indigo-900 leading-tight">ระบบบันทึก Home Room และการเข้าแถว</h1>
-            <p className="text-xs text-indigo-600">โรงเรียนเฉลิมพระเกียรติสมเด็จพระศรีนครินทร์ ยะลา</p>
-          </div>
-        </div>
-        
-        <div className="flex items-center gap-4">
+      <nav className="glass-panel rounded-none border-t-0 border-l-0 border-r-0 sticky top-0 z-50 px-6 py-4 flex items-center justify-between">
+        <div className="w-1/4 flex items-center gap-2">
           <button 
             onClick={handleSpeak}
             className={`p-2 rounded-full transition-all ${isSpeaking ? 'bg-indigo-200 text-indigo-700 animate-pulse' : 'hover:bg-indigo-100 text-indigo-600'}`}
@@ -125,6 +117,17 @@ export default function Dashboard() {
           >
             <Volume2 size={20} />
           </button>
+        </div>
+
+        <div className="flex-1 flex flex-col items-center justify-center text-center">
+          <img src="https://img2.imgbiz.com/imgbiz/logo-design.png" alt="Logo" className="h-12 w-auto drop-shadow-sm mb-1" referrerPolicy="no-referrer" />
+          <div className="hidden md:block">
+            <h1 className="text-lg font-bold text-indigo-900 leading-tight">ระบบบันทึก Home Room และการเข้าแถว</h1>
+            <p className="text-xs text-indigo-600">โรงเรียนเฉลิมพระเกียรติสมเด็จพระศรีนครินทร์ ยะลา</p>
+          </div>
+        </div>
+        
+        <div className="w-1/4 flex items-center justify-end gap-4">
           <button className="p-2 hover:bg-indigo-100 rounded-full text-indigo-600 relative transition-colors">
             <Bell size={20} />
             <span className="absolute top-1 right-1 w-2 h-2 bg-rose-500 rounded-full"></span>
@@ -139,10 +142,7 @@ export default function Dashboard() {
             </button>
           )}
           <div className="flex items-center gap-3 pl-4 border-l border-indigo-200">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-400 to-purple-400 text-white flex items-center justify-center font-bold text-sm shadow-md">
-              {currentUser?.name?.charAt(0) || 'U'}
-            </div>
-            <div className="hidden md:block text-sm">
+            <div className="hidden md:block text-sm text-right">
               <p className="font-semibold text-indigo-900">{currentUser?.name || 'ผู้ใช้งาน'}</p>
               <p className="text-xs text-indigo-500">{currentUser?.role === 'admin' ? 'ผู้ดูแลระบบ' : 'ครูประจำชั้น'}</p>
             </div>

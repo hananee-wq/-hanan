@@ -100,16 +100,18 @@ export default function Students() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 relative pb-12">
-      <nav className="glass-panel rounded-none border-t-0 border-l-0 border-r-0 sticky top-0 z-40 px-6 py-4 flex justify-between items-center mb-8">
-        <div className="flex items-center gap-4">
+      <nav className="glass-panel rounded-none border-t-0 border-l-0 border-r-0 sticky top-0 z-40 px-6 py-4 flex items-center justify-between mb-8">
+        <div className="w-1/4 flex items-center gap-4">
           <button onClick={() => navigate('/dashboard')} className="p-2 hover:bg-indigo-100 rounded-full text-indigo-600 transition-colors">
             <ArrowLeft size={24} />
           </button>
-          <div>
-            <h1 className="text-lg font-bold text-indigo-900 leading-tight">จัดการข้อมูลนักเรียน</h1>
-            <p className="text-xs text-indigo-600">เพิ่ม แก้ไข ลบ หรือนำเข้าข้อมูล</p>
-          </div>
         </div>
+        <div className="flex-1 flex flex-col items-center justify-center text-center">
+          <img src="https://img2.imgbiz.com/imgbiz/logo-design.png" alt="Logo" className="h-10 w-auto drop-shadow-sm mb-1" referrerPolicy="no-referrer" />
+          <h1 className="text-lg font-bold text-indigo-900 leading-tight">จัดการข้อมูลนักเรียน</h1>
+          <p className="text-xs text-indigo-600">เพิ่ม แก้ไข ลบ หรือนำเข้าข้อมูล</p>
+        </div>
+        <div className="w-1/4"></div>
       </nav>
 
       <main className="max-w-6xl mx-auto px-4 relative z-10">
