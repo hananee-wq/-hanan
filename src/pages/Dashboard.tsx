@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GoogleGenAI, Modality } from '@google/genai';
 import { 
   Users, UserCheck, UserX, Clock, 
   LogOut, Search, Filter, Download, 
@@ -15,8 +14,16 @@ import { useAuth } from '../contexts/AuthContext';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-// Initialize Gemini AI
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+// Initialize Gemini AI lazily to prevent top-level errors if API key is missing
+const getAI = async () => {
+  const { GoogleGenAI } = await import('@google/genai');
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    console.warn('GEMINI_API_KEY is not set. Please configure it in the AI Studio Secrets panel.');
+    return null;
+  }
+  return new GoogleGenAI({ apiKey });
+};
 
 // Mock Data
 const statsData = [
@@ -70,6 +77,15 @@ export default function Dashboard() {
 
   const handleSpeak = async () => {
     if (isSpeaking) return;
+    
+    const ai = await getAI();
+    if (!ai) {
+      setToastMessage('กรุณาตั้งค่า API Key ในระบบก่อนใช้งานฟีเจอร์นี้');
+      setTimeout(() => setToastMessage(''), 3000);
+      return;
+    }
+
+    const { Modality } = await import('@google/genai');
     setIsSpeaking(true);
     
     try {
