@@ -1,0 +1,5 @@
+{
+  "name": "ระบบบันทึก Home Room",
+  "description": "ระบบบันทึก Home Room และการเข้าแถวของนักเรียน โรงเรียนเฉลิมพระเกียรติสมเด็จพระศรีนครินทร์ ยะลา",
+  "requestFramePermissions": ["microphone"]
+}
